@@ -3,6 +3,9 @@ import os
 
 path = 'out/os.csv'
 
+def pathValue():
+    return path
+
 if os.path.isfile(path) == False:
     with open(path, 'w', newline='') as file:
         writer = csv.writer(file)
@@ -23,9 +26,8 @@ class newEntry:
 
 def addRow(str):
     newRow = list(str.split(','))
-    print(newRow)
 
-    with open(path, 'a', newline='') as file:
+    with open(path, 'a', encoding='UTF8', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(newRow)
 
@@ -53,7 +55,7 @@ def validRow(entry):
         entry.ramal = '10000'
         erro.append('Ramal não preenchido')
     
-    entry.obs = '/'.join(erro)
+    entry.obs = '_'.join(erro)
 
 def newId():
     return len(listRows())

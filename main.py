@@ -14,7 +14,8 @@ def btnSalvarListener():
     newRow = filemngr.newEntry(filemngr.newId(),entDesc.get(),entSolic.get(),entSetor.get(),entRamal.get(), now, ' ')
     filemngr.validRow(newRow)
     print(newRow)
-    filemngr.addRow(newRow)
+    filemngr.addRow(f'{newRow}')
+    cleanForm()
 
 root = Tk()
 root.title('Anotação de OS')
