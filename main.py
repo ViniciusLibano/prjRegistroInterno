@@ -1,9 +1,9 @@
-import filemngr
+import filemanager
 from tkinter import *
 from tkinter import ttk
 from datetime import datetime
 
-def cleanForm():
+def clearForm():
     entDesc.delete(0, END)
     entSolic.delete(0, END)
     entSetor.delete(0, END)
@@ -11,11 +11,10 @@ def cleanForm():
 
 def btnSalvarListener():
     now = datetime.now().strftime('%d-%m-%y %H:%M')
-    newRow = filemngr.newEntry(filemngr.newId(),entDesc.get(),entSolic.get(),entSetor.get(),entRamal.get(), now, ' ')
-    filemngr.validRow(newRow)
+    newRow = filemanager.newEntry(filemanager.newId(),entDesc.get(),entSolic.get(),entSetor.get(),entRamal.get(), now, ' ')
     print(newRow)
-    filemngr.addRow(f'{newRow}')
-    cleanForm()
+    filemanager.addRow(f'{newRow}')
+    clearForm()
 
 root = Tk()
 root.title('Anotação de OS')
