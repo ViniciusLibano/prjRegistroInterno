@@ -1,4 +1,5 @@
 import filemanager
+from os import path
 from tkinter import messagebox
 from datetime import datetime
 
@@ -26,9 +27,13 @@ def relLigacoesUnid():
             emp8 = emp8+1
         else:
             outr = outr+1
-
-    with open(fpath, 'w') as file:
-        rel = f'Relatório de ligações por unidade\nEmpr.5: {emp5}\nEmpr.6: {emp6}\nEmpr.8: {emp8}\nOutros: {outr}\n\nData: {datetime.now()}'
-        file.write(rel)
+    if path.isfile(fpath):
+        with open(fpath, 'a') as file:
+            rel = f'\nData: {datetime.now()}\n\nEmpr.5: {emp5}\nEmpr.6: {emp6}\nEmpr.8: {emp8}\nOutros: {outr}\n'
+            file.write(rel)
+    else:
+        with open(fpath, 'w') as file:
+            rel = f'Relatório de ligações por unidade\nData: {datetime.now()}\n\nEmpr.5: {emp5}\nEmpr.6: {emp6}\nEmpr.8: {emp8}\nOutros: {outr}\n'
+            file.write(rel)
 
     messagebox.showinfo(title='Registro interno', message=f'Relaório criado:\n"{fpath}"')
