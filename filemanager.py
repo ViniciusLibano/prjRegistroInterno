@@ -5,7 +5,7 @@ from datetime import datetime
 
 default_path = os.path.join(os.getenv("APPDATA"), 'RegistroInterno')
 file_name = 'registros.csv'
-fields = ['id','desc','solic','setor','ramal','dt','obs']
+fields = ['id','desc','solic','setor','ramal','dt','obs','finalizado']
 now = datetime.now().strftime('%d-%m-%y_%H-%M-%S')
 
 def toList(string):
@@ -96,5 +96,6 @@ class newEntry:
         
         self.dt = dt
         self.obs = obs
+        self.finalizado = False
     def __str__(self):
-        return f'{self.id},{self.ds},{self.solic},{self.setor },{self.ramal},{self.dt},{self.obs}'
+        return f'{self.id},{self.ds},{self.solic},{self.setor },{self.ramal},{self.dt},{self.obs},{self.finalizado}'

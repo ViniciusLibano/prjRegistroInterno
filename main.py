@@ -3,6 +3,9 @@ from tkinter import *
 from tkinter import ttk
 from datetime import datetime
 
+def relLigacoesHosp():
+    pass
+
 def clearForm():
     entDesc.delete(0, END)
     entSolic.delete(0, END)
@@ -46,5 +49,13 @@ for w in frm.winfo_children():
 
 btnSalvar = ttk.Button(frm, text='Salvar', command=btnSalvarListener)
 btnSalvar.grid(row=8, column=1, sticky='e', pady=[10,0])
+
+mnbMenu = Menu(root)
+root.config(menu=mnbMenu)
+
+mniRel = Menu(mnbMenu)
+mnbMenu.add_cascade(label='Registro')
+mnbMenu.add_cascade(label='Relatórios', menu=mniRel)
+mniRel.add_command(label='Ligações x Unidade', command=relLigacoesHosp)
 
 root.mainloop()
