@@ -1,10 +1,11 @@
 import filemanager
+import rel
 from tkinter import *
 from tkinter import ttk
 from datetime import datetime
 
-def relLigacoesHosp():
-    pass
+def relLigacoesUnid():
+    rel.relLigacoesUnid()
 
 def clearForm():
     entDesc.delete(0, END)
@@ -56,6 +57,6 @@ root.config(menu=mnbMenu)
 mniRel = Menu(mnbMenu)
 mnbMenu.add_cascade(label='Registro')
 mnbMenu.add_cascade(label='Relatórios', menu=mniRel)
-mniRel.add_command(label='Ligações x Unidade', command=relLigacoesHosp)
+mniRel.add_command(label='Ligações x Unidade', command=relLigacoesUnid)
 
 root.mainloop()
