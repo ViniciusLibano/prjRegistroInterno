@@ -8,6 +8,9 @@ file_name = 'registros.csv'
 fields = ['id','desc','solic','setor','ramal','dt','obs','finalizado']
 now = datetime.now().strftime('%d-%m-%y_%H-%M-%S')
 
+def getFields():
+    return fields
+
 def getPath(arquivo: str = ''):
     return f'{os.path.join(default_path, arquivo)}'
 

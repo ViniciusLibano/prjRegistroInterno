@@ -27,13 +27,16 @@ def relLigacoesUnid():
             emp8 = emp8+1
         else:
             outr = outr+1
+
+    hora = datetime.now().strftime("%d-%m-%y %H:%M:%S")
+    
     if path.isfile(fpath):
         with open(fpath, 'a') as file:
-            rel = f'\nData: {datetime.now()}\n\nEmpr.5: {emp5}\nEmpr.6: {emp6}\nEmpr.8: {emp8}\nOutros: {outr}\n'
+            rel = f'\nData: {hora}\n\nEmpr.5: {emp5}\nEmpr.6: {emp6}\nEmpr.8: {emp8}\nOutros: {outr}\n'
             file.write(rel)
     else:
         with open(fpath, 'w') as file:
-            rel = f'Relatório de ligações por unidade\nData: {datetime.now()}\n\nEmpr.5: {emp5}\nEmpr.6: {emp6}\nEmpr.8: {emp8}\nOutros: {outr}\n'
+            rel = f'Relatório de ligações por unidade\nData: {hora}\n\nEmpr.5: {emp5}\nEmpr.6: {emp6}\nEmpr.8: {emp8}\nOutros: {outr}\n'
             file.write(rel)
 
     messagebox.showinfo(title='Registro interno', message=f'Relaório criado:\n"{fpath}"')
