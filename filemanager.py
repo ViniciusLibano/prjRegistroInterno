@@ -29,7 +29,7 @@ def field_check(full_path):
         print(f'Campos: True')
     else:
         print(f'Campos: False')
-        new_file = f'{file_name}_{now}.csv'
+        new_file = f'{str(file_name).replace(".csv", "")}_{now}.csv'
         
         shutil.copyfile(full_path, os.path.join(default_path, new_file))
 
