@@ -11,6 +11,8 @@ def relLigacoesUnid():
         ramais.append(line.split(',')[4][1]) #pega o segundo caractere de todos os itens da coluna ramal e adiciona na lista "ramais"
     ramais.remove('a') #remove o header da coluna
 
+    print(ramais)
+
     emp5 = 0
     emp6 = 0
     emp8 = 0
@@ -19,11 +21,11 @@ def relLigacoesUnid():
     fpath = filemanager.getPath("LigacaoXUnid.txt")
 
     for n in ramais:
-        if n == 2:
+        if n == '2':
             emp5 = emp5+1
-        if n == 5:
+        elif n == '5':
             emp6 = emp6+1
-        if n == 8:
+        elif n == '8':
             emp8 = emp8+1
         else:
             outr = outr+1
