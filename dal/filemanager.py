@@ -80,28 +80,3 @@ def addRow(string):
 
 def newId():
     return len(listRows())
-
-class newEntry:
-    def __init__(self,id,ds,solic,setor,ramal,dt,obs):
-        self.id = id
-        self.ds = ds
-        if solic == '':
-            self.solic = 'vllalves'
-        else:
-            self.solic = solic
-        
-        if setor == '':
-            self.setor = 'TI'
-        else:
-            self.setor = setor
-
-        if ramal == '':
-            self.ramal = '10000'
-        else:
-            self.ramal = ramal
-        
-        self.dt = dt
-        self.obs = obs
-        self.finalizado = False
-    def __str__(self):
-        return f'{self.id},{self.ds},{self.solic},{self.setor },{self.ramal},{self.dt},{self.obs},{self.finalizado}'
