@@ -5,8 +5,13 @@ from datetime import datetime
 from model import relatorio
 from model import registro
 from dal import filemanager
+from view import FrmAnotacoes
 
-def FrmMain():
+def run():
+    def mniAnotacoesListener():
+        #FrmAnotacoes.run()
+        #Nao ta funcionando ainda
+        pass
 
     def relLigacaoXUnid():
         relatorio.relLigacaoXUnid()
@@ -60,7 +65,9 @@ def FrmMain():
     root.config(menu=mnbMenu)
 
     mniRel = Menu(mnbMenu)
-    mnbMenu.add_cascade(label='Registro')
+    mniAnotacoes = Menu(mnbMenu)
+    mnbMenu.add_cascade(label='Registro', menu=mniAnotacoes)
+    mniAnotacoes.add_command(label='Anotações realizadas', command=mniAnotacoesListener)
     mnbMenu.add_cascade(label='Relatórios', menu=mniRel)
     mniRel.add_command(label='Ligações x Unidade', command=relLigacaoXUnid)
 

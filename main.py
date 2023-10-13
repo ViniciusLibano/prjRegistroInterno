@@ -1,3 +1,3 @@
 from view import FrmMain
 
-FrmMain.FrmMain()
+FrmMain.run()
