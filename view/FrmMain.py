@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 from datetime import datetime
 
 from model import relatorio
@@ -26,9 +27,9 @@ def run():
         now = datetime.now().strftime('%d-%m-%y %H:%M')
         newRow = registro.Registro(entDesc.get(),entSolic.get(),entSetor.get(),entRamal.get(), now, ' ', False)
         registro.verificar(newRow)
-        print(newRow)
         filemanager.addRow(f'{newRow}')
         clearForm()
+        messagebox.showinfo(title='Registro interno', message=f'Registro salvo com sucesso!\n Obs.: {str(newRow.obs).replace(" - ", ", ")}')
 
     root = Tk()
     root.title('Anotação de OS')
@@ -65,9 +66,9 @@ def run():
     root.config(menu=mnbMenu)
 
     mniRel = Menu(mnbMenu)
-    mniAnotacoes = Menu(mnbMenu)
-    mnbMenu.add_cascade(label='Registro', menu=mniAnotacoes)
-    mniAnotacoes.add_command(label='Anotações realizadas', command=mniAnotacoesListener)
+    #mniAnotacoes = Menu(mnbMenu)
+    #mnbMenu.add_cascade(label='Registro', menu=mniAnotacoes)
+    #mniAnotacoes.add_command(label='Anotações realizadas', command=mniAnotacoesListener)
     mnbMenu.add_cascade(label='Relatórios', menu=mniRel)
     mniRel.add_command(label='Ligações x Unidade', command=relLigacaoXUnid)
 

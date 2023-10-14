@@ -25,10 +25,7 @@ def field_check(full_path):
         reader = csv.reader(file)
         header = reader.__next__()
         
-    if header == fields:
-        print(f'Campos: True')
-    else:
-        print(f'Campos: False')
+    if header != fields:
         new_file = f'{str(file_name).replace(".csv", "")}_{now}.csv'
         
         shutil.copyfile(full_path, os.path.join(default_path, new_file))
@@ -36,24 +33,18 @@ def field_check(full_path):
         with open(full_path, 'w', newline='', encoding='UTF8') as file:
             writer = csv.writer(file)
             writer.writerow(fields)
-        
-        print('Arquivo recriado: True')
 
 def tb_check():
     full_path = os.path.join(default_path, file_name)
 
     path_exists = os.path.isdir(default_path)
-    print(f'Caminho existe: {path_exists}')
     if path_exists == False:
         os.mkdir(default_path)
-        print(f'Pasta criada: {path_exists}')
 
     file_exists = os.path.isfile(full_path)
-    print(f'Arquivo existe: {file_exists}')
     if file_exists == False:
         with open(full_path, 'w', newline='', encoding='UTF8') as file:
             file.write(''.join(fields))
-        print(f'Arquivo criado: {file_exists}')
 
     field_check(full_path)
 
