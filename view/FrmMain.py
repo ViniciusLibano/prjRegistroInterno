@@ -62,6 +62,9 @@ def run():
     btnSalvar = ttk.Button(frm, text='Salvar', command=btnSalvarListener)
     btnSalvar.grid(row=8, column=1, sticky='e', pady=[10,0])
 
+    btnLimpar = ttk.Button(frm, text='Limpar', command=clearForm)
+    btnLimpar.grid(row=8, column=0, sticky='w', pady=[10,0])
+
     mnbMenu = Menu(root)
     root.config(menu=mnbMenu)
 
